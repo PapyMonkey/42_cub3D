@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 12:22:34 by bjm               #+#    #+#             */
-/*   Updated: 2023/03/29 11:07:01 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/18 18:35:36 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 char	*ft_get_new_line(int fd)
 {
 	int			i;
-	int			BUFFER_SIZE = 1;
-	char		buffer[BUFFER_SIZE + 1];
+	char		buffer[2];
 	char		*newline;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
 	i = 1;
 	newline = NULL;
 	while (i > 0 && !ft_strchr(newline, '\n'))
 	{
-		i = read(fd, buffer, BUFFER_SIZE);
+		i = read(fd, buffer, 1);
 		buffer[i] = '\0';
 		if (i == -1)
 			return (NULL);

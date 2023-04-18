@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:23:26 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/17 16:19:35 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/18 18:42:49 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	itter_no_spaceornl(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] && (str[i] != ' ' && str[i] != '	' && str[i] != '\v' && str[i] != '\n'))
+	while (str[i] && (str[i] != ' ' && str[i] != '	'
+			&& str[i] != '\v' && str[i] != '\n'))
 		i++;
 	return (i);
 }

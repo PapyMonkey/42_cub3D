@@ -6,12 +6,13 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:32:00 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/17 17:05:56 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/18 18:37:00 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-void map_parse(char **map)
+
+void	map_parse(char **map)
 {
 	int	i;
 	int	j;
@@ -22,10 +23,7 @@ void map_parse(char **map)
 	{
 		j += itter_whitespace(&map[i][j]);
 		if (map[i][j] != '1')
-		{
-			printf("%c\n", map[i][j]);
 			print_and_exit("Error\nWrong map format.\n");
-		}
 		while (map[i][j])
 		{
 			if (in_set("10NEWS", map[i][j]))

@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:15:40 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/17 15:34:28 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/18 18:38:18 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	is_empty(t_game **game)
 	if (!(*game)->west)
 		print_and_exit("Error\nWest texture is empty.\n");
 }
+
 void	get_rgb(t_game **game, int line)
 {
 	if (in_set("C", ((*game)->ressources[line][0])) && !(*game)->ceiling)
@@ -34,18 +35,23 @@ void	get_rgb(t_game **game, int line)
 	if (in_set("F", ((*game)->ressources[line][0])) && !(*game)->floor)
 		(*game)->floor = ft_strdup((*game)->ressources[line]);
 }
+
 void	get_texture(t_game **game, int line)
 {
-	if ((*game)->ressources[line][0] == 'N' && in_set("O", ((*game)->ressources[line][1])) && !(*game)->north)
+	if ((*game)->ressources[line][0] == 'N' && in_set("O",
+		((*game)->ressources[line][1])) && !(*game)->north)
 		(*game)->north = ft_strdup((*game)->ressources[line]);
-	if ((*game)->ressources[line][0] == 'S' && in_set("O", ((*game)->ressources[line][1])) && !(*game)->south)
+	if ((*game)->ressources[line][0] == 'S' && in_set("O",
+		((*game)->ressources[line][1])) && !(*game)->south)
 		(*game)->south = ft_strdup((*game)->ressources[line]);
-	if ((*game)->ressources[line][0] == 'W' && in_set("E", ((*game)->ressources[line][1])) && !(*game)->west)
+	if ((*game)->ressources[line][0] == 'W' && in_set("E",
+		((*game)->ressources[line][1])) && !(*game)->west)
 		(*game)->west = ft_strdup((*game)->ressources[line]);
-	if ((*game)->ressources[line][0] == 'E' && in_set("A", ((*game)->ressources[line][1])) && !(*game)->east)
+	if ((*game)->ressources[line][0] == 'E' && in_set("A",
+		((*game)->ressources[line][1])) && !(*game)->east)
 		(*game)->east = ft_strdup((*game)->ressources[line]);
-
 }
+
 void	ressource_parse(t_game **game)
 {
 	int	i;
@@ -53,7 +59,7 @@ void	ressource_parse(t_game **game)
 
 	i = -1;
 	j = 0;
-	while((*game)->ressources[++i])
+	while ((*game)->ressources[++i])
 	{
 		if (in_set("CF", (*game)->ressources[i][j]))
 			get_rgb(game, i);

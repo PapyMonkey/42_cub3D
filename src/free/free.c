@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:44:01 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/13 17:02:29 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/18 18:34:03 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_char_array(char **array)
 	int	i;
 
 	i = -1;
-	while(array[++i])
+	while (array[++i])
 		free(array[i]);
 	free (array);
 }
