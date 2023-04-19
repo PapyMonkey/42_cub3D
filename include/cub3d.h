@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:19:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 15:19:14 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:47:26 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,49 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "libft.h"
 
-typedef struct s_game{
-	char	**map;
-	char	**ressources;
-	char	*floor;
-	int		f_rgb[3];
-	int		c_rgb[3];
-	char	*ceiling;
-	char	*north;
-	char	*south;
-	char	*west;
-	char	*east;
-}	t_game;
+// *****************************************************************************
+// Personal library
+
+# include "libft.h"
+# include "structures.h"
+# include "parse.h"
+# include "utils.h"
 
 char	*get_next_line(int fd);
-void	print_and_exit(char *str);
-void	is_cub(char *map_path);
-int		itter_whitespace(char *str);
-int		brut_file_size(char *map_path);
-int		coolsize(char **cub_file);
-void	free_char_array(char **array);
-void	ressource_parse(t_game **game);
-int		in_set(char *set, char c);
-void	null_all(t_game **game);
-int		itter_digit(char *str);
-void	parse_ceiling(t_game **game, char *str);
-void	parse_floor(t_game **game, char *str);
-void	parse_texture(t_game **game);
-int		itter_no_spaceornl(char *str);
-int		itter_space(char *str);
-int		itter_walls(char *str);
-void	map_parser(char **map);
+// *****************************************************************************
+// Functions - main.c
+
+/*
+@brief Remove empty lines from the input cub_file.
+
+@param cub_file   An array of strings representing the cub file content.
+@return           Returns a new array of strings without the empty lines.
+*/
+char	**del_empty_lines(char **cub_file);
+
+/*
+@brief Read the content of a map file and return it as an array of strings.
+
+@param map_path   Path of the map file.
+@return           Returns an array of strings containing the content of the map file.
+*/
+char	**get_file(char *map_path);
+
+/*
+@brief Extract the map section from the cub_file.
+
+@param cub_file   An array of strings representing the cub file content.
+@return           Returns a new array of strings containing only the map section.
+*/
+char	**get_map(char **cub_file);
+
+/*
+@brief Extract the resources section from the cub_file.
+
+@param cub_file   An array of strings representing the cub file content.
+@return           Returns a new array of strings containing only the resources section.
+*/
+char	**get_ressources(char **cub_file);
+
 #endif
