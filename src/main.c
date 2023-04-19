@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:39:33 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 19:27:59 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ int	main(int argc, char **argv)
 	game->ressources = get_ressources(cub_file);
 	ressource_parse(&game);
 	map_parser(game->map);
+	player_parser(game->map);
 }
