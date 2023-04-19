@@ -6,11 +6,11 @@
 #    By: bgales <bgales@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2023/04/17 11:33:48 by bgales           ###   ########.fr        #
+#    Updated: 2023/04/19 19:06:44 by bgales           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				?=	cub3d
+NAME				?=	cub3D
 
 CC					=	gcc -g -fsanitize=address
 CFLAGS				?=	-Wall -Wextra -Werror
