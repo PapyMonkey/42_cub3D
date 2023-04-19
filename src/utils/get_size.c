@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:40:57 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:39:41 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	coolsize(char **cub_file)
 	j = 0;
 	while (cub_file[++i])
 	{
-		j += itter_whitespace(cub_file[i]);
+		j += iter_whitespace(cub_file[i]);
 		if (cub_file[i][j] == '\0' || cub_file[i][j] == '\n')
 			j = 0;
 		else

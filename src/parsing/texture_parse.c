@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:32:44 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:38:30 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	parse_north_south(char *str)
 	i = 1;
 	if (str[i++] != 'O')
 		print_and_exit("Error\nWrong texture format.\n");
-	i += itter_whitespace(&str[i]);
-	j = itter_no_spaceornl(&str[i]);
+	i += iter_whitespace(&str[i]);
+	j = iter_no_spaceornl(&str[i]);
 	tmp = ft_substr(&str[i], 0, j);
 	i += j;
-	i += itter_whitespace(&str[i]) + 1;
+	i += iter_whitespace(&str[i]) + 1;
 	if (str[i] != '\0')
 		print_and_exit("Error\nTexture couldnt be loaded.\n");
 	if (open(tmp, O_RDONLY) < 0)
@@ -44,11 +44,11 @@ void	parse_east(char *str)
 	i = 1;
 	if (str[i++] != 'A')
 		print_and_exit("Error\nWrong texture format.\n");
-	i += itter_whitespace(&str[i]);
-	j = itter_no_spaceornl(&str[i]);
+	i += iter_whitespace(&str[i]);
+	j = iter_no_spaceornl(&str[i]);
 	tmp = ft_substr(&str[i], 0, j);
 	i += j;
-	i += itter_whitespace(&str[i]) + 1;
+	i += iter_whitespace(&str[i]) + 1;
 	if (str[i] != '\0')
 		print_and_exit("Error\nTexture couldnt be loaded.\n");
 	if (open(tmp, O_RDONLY) < 0)
@@ -66,11 +66,11 @@ void	parse_west(char *str)
 	i = 1;
 	if (str[i++] != 'E')
 		print_and_exit("Error\nWrong texture format.\n");
-	i += itter_whitespace(&str[i]);
-	j = itter_no_spaceornl(&str[i]);
+	i += iter_whitespace(&str[i]);
+	j = iter_no_spaceornl(&str[i]);
 	tmp = ft_substr(&str[i], 0, j);
 	i += j;
-	i += itter_whitespace(&str[i]) + 1;
+	i += iter_whitespace(&str[i]) + 1;
 	if (str[i] != '\0')
 		print_and_exit("Error\nTexture couldnt be loaded.\n");
 	if (open(tmp, O_RDONLY) < 0)

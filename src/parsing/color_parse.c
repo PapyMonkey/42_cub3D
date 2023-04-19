@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:22:07 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:36:44 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	parse_ceiling(t_game **game, char *str)
 	j = 0;
 	while (str[++i])
 	{
-		i += itter_whitespace(&str[i]);
+		i += iter_whitespace(&str[i]);
 		if (str[i] >= '0' && str[i] <= '9')
 		{
-			color = ft_substr(&str[i], 0, itter_digit(&str[i]));
-			i += itter_digit(&str[i]);
-			i += itter_whitespace(&str[i]);
+			color = ft_substr(&str[i], 0, iter_digit(&str[i]));
+			i += iter_digit(&str[i]);
+			i += iter_whitespace(&str[i]);
 			(*game)->c_rgb[j++] = ft_atoi(color);
 			free(color);
 		}
@@ -56,12 +56,12 @@ void	parse_floor(t_game **game, char *str)
 	j = 0;
 	while (str[++i])
 	{
-		i += itter_whitespace(&str[i]);
+		i += iter_whitespace(&str[i]);
 		if (str[i] >= '0' && str[i] <= '9')
 		{
-			color = ft_substr(&str[i], 0, itter_digit(&str[i]));
-			i += itter_digit(&str[i]);
-			i += itter_whitespace(&str[i]);
+			color = ft_substr(&str[i], 0, iter_digit(&str[i]));
+			i += iter_digit(&str[i]);
+			i += iter_whitespace(&str[i]);
 			(*game)->f_rgb[j++] = ft_atoi(color);
 			free(color);
 		}

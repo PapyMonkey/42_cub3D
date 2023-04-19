@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:32:00 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 17:29:40 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:49:40 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	wall_parse(char **map)
 			if (map[line][index] == '1')
 			{
 				is_attached(map, line, index);
-				index += itter_walls(&map[line][index]);
-				index += itter_space(&map[line][index]);
+				index += iter_walls(&map[line][index]);
+				index += iter_space(&map[line][index]);
 			}
 			else
 				index++;
@@ -95,7 +95,7 @@ void	map_parser(char **map)
 	j = 0;
 	while (map[++i])
 	{
-		j += itter_space(&map[i][j]);
+		j += iter_space(&map[i][j]);
 		if (map[i][j] != '1')
 			print_and_exit("Error\nWrong map format.\n");
 		while (in_set("10NEWS ", map[i][j++]))
