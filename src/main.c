@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:39:33 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 17:25:28 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**del_empty_lines(char **cub_file)
 	ret = malloc(sizeof(char *) * (coolsize(cub_file) + 1) + (j = 0) + (c = 0));
 	while (cub_file[++i] && c < coolsize(cub_file))
 	{
-		j += itter_whitespace(cub_file[i]);
+		j += iter_whitespace(cub_file[i]);
 		if (cub_file[i][j] && (cub_file[i][j] == '\0'
 			|| cub_file[i][j] == '\n') && c <= 6)
 			j = 0;
@@ -103,11 +103,11 @@ char	**get_ressources(char **cub_file)
 	j = 0;
 	while (++i < 6)
 	{
-		j += itter_whitespace(cub_file[i]);
+		j += iter_whitespace(cub_file[i]);
 		ret[i] = ft_substr(cub_file[i], j, ft_strlen(cub_file[i]));
 		j = 0;
 	}
-	j += itter_whitespace(cub_file[i]);
+	j += iter_whitespace(cub_file[i]);
 	if (cub_file[i][j] != '1')
 		print_and_exit("Error\n map file uncorrectly formated.\n");
 	ret[i] = NULL;
