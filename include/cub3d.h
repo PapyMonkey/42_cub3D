@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:19:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:40:12 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 15:19:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void	parse_ceiling(t_game **game, char *str);
 void	parse_floor(t_game **game, char *str);
 void	parse_texture(t_game **game);
 int		itter_no_spaceornl(char *str);
-void	map_parse(char **map);
+int		itter_space(char *str);
+int		itter_walls(char *str);
+void	map_parser(char **map);
 #endif

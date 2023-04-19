@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:39:33 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:40:24 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 17:25:28 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,23 @@ char	**get_file(char *map_path)
 	is_cub(map_path);
 	ret = malloc(sizeof(char *) * (brut_file_size(map_path) + 1));
 	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		print_and_exit("Error\nMap file was not found.\n");
 	i = 0;
 	while (1)
 	{
 		ret[i] = get_next_line(fd);
 		if (!ret[i])
 			break ;
+		i++;
 	}
 	close(fd);
-	i = -1;
 	ret = del_empty_lines(ret);
+	i = 0;
+	while (ret[i])
+		i++;
+	if (i <= 6)
+		print_and_exit("Error\nMap file is incomplete.\n");
 	return (ret);
 }
 
@@ -123,5 +130,5 @@ int	main(int argc, char **argv)
 	game->map = get_map(cub_file);
 	game->ressources = get_ressources(cub_file);
 	ressource_parse(&game);
-	map_parse(game->map);
+	map_parser(game->map);
 }
