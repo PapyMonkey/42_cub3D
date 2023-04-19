@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:30:27 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:42:06 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 18:34:46 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,4 @@ void	is_cub(char *map_path)
 		|| map_path[ft_strlen(map_path) - 2] != 'u'
 		|| map_path[ft_strlen(map_path) - 1] != 'b')
 		print_and_exit("Error\nMap must be to \".cub\" format\n");
-}
-
-int	itter_whitespace(char *str)
-{
-	int	i;
-
-	i = -1;
-	if (!str)
-		return (0);
-	while (str[++i] && (str[i] == ' ' || str[i] == '	' || str[i] == '\v'))
-		;
-	return (i);
-}
-
-int	itter_digit(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-		i++;
-	return (i);
 }
