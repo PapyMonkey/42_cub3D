@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:32:00 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 18:49:40 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 19:32:41 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	is_surrounded(char **map, int line, int index)
 {
 	if (ft_strlen(map[line - 1]) < index)
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\n An element must be surrounded by walls.\n");
 	if (ft_strlen(map[line + 1]) < index)
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\nAn element must be surrounded by walls.\n");
 	if (!in_set("10NEWS", map[line + 1][index]))
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\nAn element must be surrounded by walls.\n");
 	if (!in_set("10NEWS", map[line - 1][index]))
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\nAn element must be surrounded by walls.\n");
 	if (!in_set("10NEWS", map[line][index - 1]))
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\nAn element must be surrounded by walls.\n");
 	if (!in_set("10NEWS", map[line][index + 1]))
-		print_and_exit("Error\nRooms must be surrounded by walls.\n");
+		print_and_exit("Error\nAn element must be surrounded by walls.\n");
 }
 
 void	is_attached(char **map, int line, int index)
