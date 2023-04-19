@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:43:14 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 18:13:21 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 19:31:21 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void		parse_floor(t_game **game, char *str);
 // Functions - map_parse.c
 
 /**
-@brief Check if a room is surrounded by walls.
+@brief Check if an element is surrounded by walls.
 
 @param map The map to parse.
-@param line The line index of the room to check.
-@param index The index of the room to check.
+@param line The line index of the element to check.
+@param index The index of the element to check.
 @return None.
 */
 void		is_surrounded(char **map, int line, int index);
