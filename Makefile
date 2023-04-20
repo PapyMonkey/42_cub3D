@@ -57,15 +57,14 @@ OBJS 				:=	$(addprefix $(OBJS_PATH)/, $(SRCS:$(SRCS_PATH)/%.c=%.o))
 # ********************************* H E A D S *********************************
 
 HFLAGS				:=	-I $(HDRS_PATH)\
-						-I $(LIBFT_PATH)/$(HDRS_PATH)\
+						-I $(LIBFT_PATH)/$(HDRS_PATH)
 
 # ********************************** L I B S **********************************
 
 # Libft
 FTFLAGS				:=	-L./$(LIBFT_PATH)
-LDFLAGS				:=
 
-LFLAGS				:=	$(FTFLAGS) $(LDFLAGS) -lft
+LFLAGS				:=	$(FTFLAGS) -lft
 
 # ********************************* N O R M E *********************************
 
