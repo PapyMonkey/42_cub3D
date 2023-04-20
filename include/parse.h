@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:43:14 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:40:55 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:28:03 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,37 @@
 # include "structures.h"
 
 // *****************************************************************************
+// Functions - parser.c
+/*
+@brief The gate to all the other parsing functions.
+@param game		The game structure.
+@param cub_file	An array of strings representing the cub file content.
+@param map_path A string containing the path to ".cub" file.
+
+*/
+void	parser(t_game **game, char **cub_file, char *map_path);
+
+// *****************************************************************************
 // Functions - color_parse.c
 /*
-** @brief Parse a RGB color array and validate the format.
-**
-** @param rgb An array containing the RGB color values.
-** @param j The size of the array.
+@brief Parse a RGB color array and validate the format.
+@param rgb An array containing the RGB color values.
+@param j The size of the array.
 */
 void		parse_color(int *rgb, int j, t_game **game);
 
 /*
-** @brief Parse the ceiling color and store it in the game structure.
-**
-** @param game The main game structure.
-** @param str The string containing the ceiling color.
+@brief Parse the ceiling color and store it in the game structure.
+@param game The main game structure.
+@param str The string containing the ceiling color.
 */
 void		parse_ceiling(t_game **game, char *str);
 
 /*
-** @brief Parse the floor color and store it in the game structure.
-**
-** @param game The main game structure.
-** @param str The string containing the floor color.
+@brief Parse the floor color and store it in the game structure.
+@param game The main game structure.
+@param str The string containing the floor color.
+
 */
 void		parse_floor(t_game **game, char *str);
 

@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:41:05 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:42:23 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:37:30 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,19 @@ int			iter_no_spaceornl(char *str);
 /*
 @brief Print the given string and exit the program.
 @param str The string to be printed.
+@param game The game structure to be freed.
 */
 void		print_free_exit(char *str, t_game **game);
-void		free_2d_char(char **tab);
+
+/*
+@brief Frees char array.
+@param tab The array to be freed.
+*/
+void		free_char_array(char **tab);
+
+/*
+@brief Frees all elements of the given game structure.
+@param game The game struct to be freed
+*/
 void		free_struct(t_game **game);
 #endif

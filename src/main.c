@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:39:33 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:44:22 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:37:11 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**del_empty_lines(char **file)
 		}
 	}
 	ret[c] = NULL;
-	free_2d_char(file);
+	free_char_array(file);
 	return (ret);
 }
 
@@ -110,7 +110,7 @@ char	**get_ressources(char **cub_file, t_game **game)
 	j += iter_whitespace(cub_file[i]);
 	if (cub_file[i][j] != '1')
 	{
-		free_2d_char(cub_file);
+		free_char_array(cub_file);
 		print_free_exit("Error\n map file uncorrectly formated.\n", game);
 	}
 	ret[i] = NULL;
@@ -128,13 +128,6 @@ int	main(int argc, char **argv)
 		printf("Wrong argument format");
 		exit (0);
 	}
-	null_all(&game);
-	cub_file = get_file(argv[1], &game);
-	game->map = get_map(cub_file);
-	game->ressources = get_ressources(cub_file, &game);
-	free_2d_char(cub_file);
-	ressource_parse(&game);
-	map_parser(game->map, &game);
-	player_parser(game->map, &game);
-	print_free_exit(NULL, &game);
+	parser(&game, cub_file, argv[1]);
+	free_struct(&game);
 }
