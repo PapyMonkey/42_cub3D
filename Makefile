@@ -6,7 +6,7 @@
 #    By: bgales <bgales@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2023/04/19 19:06:44 by bgales           ###   ########.fr        #
+#    Updated: 2023/04/20 14:54:31 by bgales           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,15 +58,14 @@ OBJS 				:=	$(addprefix $(OBJS_PATH)/, $(SRCS:$(SRCS_PATH)/%.c=%.o))
 
 HFLAGS				:=	-I $(HDRS_PATH)\
 						-I $(LIBFT_PATH)/$(HDRS_PATH)\
-						-I /Users/$(USER)/.brew/opt/readline/include
 
 # ********************************** L I B S **********************************
 
 # Libft
 FTFLAGS				:=	-L./$(LIBFT_PATH)
-LDFLAGS				:= -L/Users/$(USER)/.brew/opt/readline/lib
+LDFLAGS				:=
 
-LFLAGS				:=	$(FTFLAGS) $(LDFLAGS) -lft -lreadline
+LFLAGS				:=	$(FTFLAGS) $(LDFLAGS) -lft
 
 # ********************************* N O R M E *********************************
 
