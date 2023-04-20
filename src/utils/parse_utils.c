@@ -6,13 +6,13 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:30:27 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/17 14:07:52 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:46:19 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	NULL_all(t_game **game)
+void	null_all(t_game **game)
 {
 	(*game)->north = NULL;
 	(*game)->south = NULL;
@@ -20,7 +20,10 @@ void	NULL_all(t_game **game)
 	(*game)->west = NULL;
 	(*game)->ceiling = NULL;
 	(*game)->floor = NULL;
+	(*game)->ressources = NULL;
+	(*game)->map = NULL;
 }
+
 int	in_set(char *set, char c)
 {
 	int	i;
@@ -33,32 +36,12 @@ int	in_set(char *set, char c)
 	}
 	return (0);
 }
-void	is_cub(char *map_path)
+
+void	is_cub(char *map_path, t_game **game)
 {
-	if (map_path[ft_strlen(map_path) - 4] != '.' || map_path[ft_strlen(map_path) - 3] != 'c' ||
-		map_path[ft_strlen(map_path) - 2] != 'u' || map_path[ft_strlen(map_path) - 1] !='b')
-		print_and_exit("Error\nMap must be to \".cub\" format\n");
-
-}
-
-int	itter_whitespace(char *str)
-{
-	int	i;
-
-	i = -1;
-	if (!str)
-		return (0);
-	while(str[++i] && (str[i] == ' ' || str[i] == '	' || str[i] == '\v'))
-	;
-	return (i);
-}
-
-int	itter_digit(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] >= '0' && str[i]<= '9')
-		i++;
-	return (i);
+	if (map_path[ft_strlen(map_path) - 4] != '.'
+		|| map_path[ft_strlen(map_path) - 3] != 'c'
+		|| map_path[ft_strlen(map_path) - 2] != 'u'
+		|| map_path[ft_strlen(map_path) - 1] != 'b')
+		print_free_exit("Error\nMap must be to \".cub\" format\n", game);
 }

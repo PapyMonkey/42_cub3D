@@ -6,57 +6,67 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:39:33 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/17 16:32:40 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:37:11 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	**del_empty_lines(char **cub_file)
+char	**del_empty_lines(char **file)
 {
-	int	i;
-	int	j;
-	int	c;
-	char **ret;
+	int		i;
+	int		j;
+	int		c;
+	char	**ret;
 
 	i = -1;
-	j = 0;
-	c = 0;
-	ret = malloc(sizeof(char *) * (clean_file_size(cub_file) + 1));
-	while(cub_file[++i] && c < clean_file_size(cub_file))
+	ret = malloc(sizeof(char *) * (coolsize(file) + 1) + (j = 0) + (c = 0));
+	while (file[++i] && c < coolsize(file))
 	{
-		j += itter_whitespace(cub_file[i]);
-		if (cub_file[i][j] && (cub_file[i][j] == '\0' || cub_file[i][j] == '\n') && c <= 6)
+		j += iter_whitespace(file[i]);
+		if (file[i][j] && (file[i][j] == '\0' || file[i][j] == '\n') && c <= 6)
 			j = 0;
 		else
 		{
 			if (c < 6)
-				ret[c] = ft_substr(cub_file[i], j, ft_strlen(cub_file[i]));
+				ret[c] = ft_substr(file[i], j, ft_strlen(file[i]));
 			else
-					ret[c] = ft_substr(cub_file[i], 0, ft_strlen(cub_file[i]));
+					ret[c] = ft_substr(file[i], 0, ft_strlen(file[i]));
 			c++;
 			j = 0;
 		}
 	}
 	ret[c] = NULL;
+	free_char_array(file);
 	return (ret);
 }
 
-char	**get_file(char *map_path)
+char	**get_file(char *map_path, t_game **game)
 {
 	int		fd;
 	char	**ret;
 	int		i;
 
-	is_cub(map_path);
+	is_cub(map_path, game);
 	ret = malloc(sizeof(char *) * (brut_file_size(map_path) + 1));
 	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		print_free_exit("Error\nMap file was not found.\n", game);
 	i = 0;
-	while ((ret[i] = get_next_line(fd)))
+	while (1)
+	{
+		ret[i] = get_next_line(fd);
+		if (!ret[i])
+			break ;
 		i++;
+	}
 	close(fd);
-	i = -1;
 	ret = del_empty_lines(ret);
+	i = 0;
+	while (ret[i])
+		i++;
+	if (i <= 6)
+		print_free_exit("Error\nMap file is incomplete.\n", game);
 	return (ret);
 }
 
@@ -68,7 +78,7 @@ char	**get_map(char **cub_file)
 
 	i = 6;
 	j = 0;
-	while(cub_file[i])
+	while (cub_file[i])
 	{
 		i++;
 		j++;
@@ -82,7 +92,7 @@ char	**get_map(char **cub_file)
 	return (ret);
 }
 
-char	**get_ressources(char **cub_file)
+char	**get_ressources(char **cub_file, t_game **game)
 {
 	int		i;
 	int		j;
@@ -91,35 +101,33 @@ char	**get_ressources(char **cub_file)
 	ret = malloc(sizeof(char *) * 7);
 	i = -1;
 	j = 0;
-	while(++i < 6)
+	while (++i < 6)
 	{
-		j += itter_whitespace(cub_file[i]);
+		j += iter_whitespace(cub_file[i]);
 		ret[i] = ft_substr(cub_file[i], j, ft_strlen(cub_file[i]));
 		j = 0;
 	}
-	j += itter_whitespace(cub_file[i]);
+	j += iter_whitespace(cub_file[i]);
 	if (cub_file[i][j] != '1')
-		print_and_exit("Error\n map file uncorrectly formated.\n");
+	{
+		free_char_array(cub_file);
+		print_free_exit("Error\n map file uncorrectly formated.\n", game);
+	}
 	ret[i] = NULL;
 	return (ret);
 }
-
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
 	char	**cub_file;
+
 	game = malloc(sizeof(t_game));
 	if (argc != 2)
 	{
 		printf("Wrong argument format");
 		exit (0);
 	}
-	cub_file = get_file(argv[1]);
-	NULL_all(&game);
-	game->map = get_map(cub_file);
-	game->ressources = get_ressources(cub_file);
-	ressource_parse(&game);
-	map_parse(game->map);
-	// system("leaks cub3d");
+	parser(&game, cub_file, argv[1]);
+	free_struct(&game);
 }
