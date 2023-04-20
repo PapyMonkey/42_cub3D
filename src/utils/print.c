@@ -6,14 +6,16 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:42:32 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:42:36 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 11:50:28 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	print_and_exit(char *str)
+void	print_free_exit(char *str, t_game **game)
 {
-	printf("%s", str);
+	if (str)
+		printf("%s", str);
+	free_struct(game);
 	exit (0);
 }

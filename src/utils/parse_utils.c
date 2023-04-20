@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:30:27 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 18:34:46 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 11:49:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ int	in_set(char *set, char c)
 	return (0);
 }
 
-void	is_cub(char *map_path)
+void	is_cub(char *map_path, t_game **game)
 {
 	if (map_path[ft_strlen(map_path) - 4] != '.'
 		|| map_path[ft_strlen(map_path) - 3] != 'c'
 		|| map_path[ft_strlen(map_path) - 2] != 'u'
 		|| map_path[ft_strlen(map_path) - 1] != 'b')
-		print_and_exit("Error\nMap must be to \".cub\" format\n");
+		print_free_exit("Error\nMap must be to \".cub\" format\n", game);
 }

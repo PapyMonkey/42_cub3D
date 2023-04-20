@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:15:40 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/18 18:38:18 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/19 19:59:45 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	is_empty(t_game **game)
 {
 	if (!(*game)->floor)
-		print_and_exit("Error\nFloor ressource is empty.\n");
+		print_free_exit("Error\nFloor ressource is empty.\n", game);
 	if (!(*game)->ceiling)
-		print_and_exit("Error\nCeiling ressource is empty.\n");
+		print_free_exit("Error\nCeiling ressource is empty.\n", game);
 	if (!(*game)->north)
-		print_and_exit("Error\nNorth texture is empty.\n");
+		print_free_exit("Error\nNorth texture is empty.\n", game);
 	if (!(*game)->south)
-		print_and_exit("Error\nSouth texture is empty.\n");
+		print_free_exit("Error\nSouth texture is empty.\n", game);
 	if (!(*game)->east)
-		print_and_exit("Error\nEast texture is empty.\n");
+		print_free_exit("Error\nEast texture is empty.\n", game);
 	if (!(*game)->west)
-		print_and_exit("Error\nWest texture is empty.\n");
+		print_free_exit("Error\nWest texture is empty.\n", game);
 }
 
 void	get_rgb(t_game **game, int line)
@@ -66,7 +66,7 @@ void	ressource_parse(t_game **game)
 		else if (in_set("NSWE", (*game)->ressources[i][j]))
 			get_texture(game, i);
 		else
-			print_and_exit("Error\nWrong texture format.\n");
+			print_free_exit("Error\nWrong texture format.\n", game);
 	}
 	parse_ceiling(game, (*game)->ceiling);
 	parse_floor(game, (*game)->floor);

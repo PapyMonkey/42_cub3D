@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/20 11:41:05 by bgales            #+#    #+#             */
+/*   Updated: 2023/04/20 11:42:23 by bgales           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef UTILS_H
 # define UTILS_H
 
@@ -16,7 +28,7 @@
 @param map_path The path to the map file.
 @return Returns the number of lines in the file.
 */
-int		brut_file_size(char *map_path);
+int			brut_file_size(char *map_path);
 
 /*
 @brief Calculates the number of valid rows in the map array.
@@ -24,7 +36,7 @@ int		brut_file_size(char *map_path);
 @param cub_file The map array to count.
 @return Returns the number of valid rows in the map.
 */
-int		coolsize(char **cub_file);
+int			coolsize(char **cub_file);
 
 // *****************************************************************************
 // Functions - parse_utils.c
@@ -43,14 +55,14 @@ void		null_all(t_game **game);
 @param c     Character to search for.
 @return      Returns 1 if the character is in the set, otherwise 0.
 */
-int 		in_set(char *set, char c);
+int			in_set(char *set, char c);
 
 /*
 @brief Check if the map file has a ".cub" extension.
 
 @param map_path   Path of the map file.
 */
-void		is_cub(char *map_path);
+void		is_cub(char *map_path, t_game **game);
 
 // *****************************************************************************
 // Functions - iteration_utils.c
@@ -61,7 +73,7 @@ void		is_cub(char *map_path);
 @param str   The input string.
 @return      Returns the index of the first non-whitespace character.
 */
-int 		iter_whitespace(char *str);
+int			iter_whitespace(char *str);
 
 /*
 @brief Iterate through digits in the given string.
@@ -69,7 +81,7 @@ int 		iter_whitespace(char *str);
 @param str   The input string.
 @return      Returns the index of the first non-digit character.
 */
-int 		iter_digit(char *str);
+int			iter_digit(char *str);
 
 /*
 @brief Iterate through wall characters (1) in the given string.
@@ -104,7 +116,7 @@ int			iter_no_spaceornl(char *str);
 @brief Print the given string and exit the program.
 @param str The string to be printed.
 */
-void		print_and_exit(char *str);
-
-
+void		print_free_exit(char *str, t_game **game);
+void		free_2d_char(char **tab);
+void		free_struct(t_game **game);
 #endif
