@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:42:32 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:31:18 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:43:23 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	free_struct(t_game **game)
 	int	i;
 
 	i = -1;
-	while ((*game)->map[++i])
-		free((*game)->map[i]);
+	if ((*game)->map)
+		while ((*game)->map[++i])
+			free((*game)->map[i]);
 	free ((*game)->map);
 	i = -1;
-	while ((*game)->ressources[++i])
-		free((*game)->ressources[i]);
+	if ((*game)->ressources)
+		while ((*game)->ressources[++i])
+			free((*game)->ressources[i]);
 	free ((*game)->ressources);
 	free((*game)->floor);
 	free((*game)->ceiling);

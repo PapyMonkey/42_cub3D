@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:15:40 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 19:59:45 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 14:05:47 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	ressource_parse(t_game **game)
 		else
 			print_free_exit("Error\nWrong texture format.\n", game);
 	}
+	is_empty(game);
 	parse_ceiling(game, (*game)->ceiling);
 	parse_floor(game, (*game)->floor);
-	is_empty(game);
 	parse_texture(game);
 }

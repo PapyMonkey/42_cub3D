@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:22:07 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:45:12 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 14:14:04 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	parse_ceiling(t_game **game, char *str)
 	char	*color;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	while (str[++i])
 	{
 		i += iter_whitespace(&str[i]);
@@ -37,7 +37,8 @@ void	parse_ceiling(t_game **game, char *str)
 			color = ft_substr(&str[i], 0, iter_digit(&str[i]));
 			i += iter_digit(&str[i]);
 			i += iter_whitespace(&str[i]);
-			(*game)->c_rgb[j++] = ft_atoi(color);
+			if (++j < 3)
+				(*game)->c_rgb[j] = ft_atoi(color);
 			free(color);
 		}
 		else
@@ -53,7 +54,7 @@ void	parse_floor(t_game **game, char *str)
 	char	*color;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	while (str[++i])
 	{
 		i += iter_whitespace(&str[i]);
@@ -62,7 +63,8 @@ void	parse_floor(t_game **game, char *str)
 			color = ft_substr(&str[i], 0, iter_digit(&str[i]));
 			i += iter_digit(&str[i]);
 			i += iter_whitespace(&str[i]);
-			(*game)->f_rgb[j++] = ft_atoi(color);
+			if (++j < 3)
+				(*game)->f_rgb[j] = ft_atoi(color);
 			free(color);
 		}
 		else

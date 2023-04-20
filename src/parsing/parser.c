@@ -6,11 +6,12 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 12:20:59 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:29:06 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:38:19 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
 void	parser(t_game **game, char **cub_file, char *map_path)
 {
 	null_all(game);

@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:43:14 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:28:03 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:38:35 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 @param map_path A string containing the path to ".cub" file.
 
 */
-void	parser(t_game **game, char **cub_file, char *map_path);
+void		parser(t_game **game, char **cub_file, char *map_path);
 
 // *****************************************************************************
 // Functions - color_parse.c

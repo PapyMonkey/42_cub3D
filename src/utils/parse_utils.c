@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:30:27 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:49:14 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/20 12:46:19 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	null_all(t_game **game)
 	(*game)->west = NULL;
 	(*game)->ceiling = NULL;
 	(*game)->floor = NULL;
+	(*game)->ressources = NULL;
+	(*game)->map = NULL;
 }
 
 int	in_set(char *set, char c)
