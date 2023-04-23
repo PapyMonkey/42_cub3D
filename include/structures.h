@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:46:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 17:47:21 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:02:36 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define STRUCTURES_H
 
 typedef struct s_game{
+	void	*mlx_ptr;
+	void	*win_ptr;
 	char	**map;
 	char	**ressources;
 	char	*floor;
@@ -24,6 +26,8 @@ typedef struct s_game{
 	char	*south;
 	char	*west;
 	char	*east;
+	int		height;
+	int		width;
 }	t_game;
 
 #endif
