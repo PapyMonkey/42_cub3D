@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:19:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 11:38:35 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/21 12:39:51 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <mlx.h>
 
 // *****************************************************************************
 // Personal library
@@ -25,6 +26,7 @@
 # include "structures.h"
 # include "parse.h"
 # include "utils.h"
+# include "game.h"
 
 char	*get_next_line(int fd);
 // *****************************************************************************
@@ -38,28 +40,6 @@ char	*get_next_line(int fd);
 */
 char	**del_empty_lines(char **cub_file);
 
-/*
-@brief	Read the content of a map file and return it as an array of strings.
 
-@param map_path   Path of the map file.
-@return			Returns an array of strings containing the content of the map file.
-*/
-char	**get_file(char *map_path, t_game **game);
-
-/*
-@brief Extract the map section from the cub_file.
-
-@param cub_file   An array of strings representing the cub file content.
-@return 		Returns a new array of strings containing only the map section.
-*/
-char	**get_map(char **cub_file);
-
-/*
-@brief Extract the resources section from the cub_file.
-
-@param cub_file		An array of strings representing the cub file content.
-@return			Returns a new array of strings containing only the resources section.
-*/
-char	**get_ressources(char **cub_file, t_game **game);
 
 #endif
