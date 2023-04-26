@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:39:01 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/26 15:54:32 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:19:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,23 @@
 
 // *****************************************************************************
 // Functions - game_init.c
+
+/*
+@brief Initialize the angles for the player.
+
+@param game   Pointer to the game structure.
+*/
+void			init_angles(t_game *game);
+
+/*
+@brief Initialize the game, set up the window, and start the game loop.
+
+@param game   Pointer to the game structure.
+*/
+void			game_init(t_game **game);
+
+// *****************************************************************************
+// Functions - display.c
 
 /*
 @brief Draw the map walls on the screen.
@@ -40,20 +57,6 @@ void			draw_player(t_game *game, double i, double j);
 @param game   Pointer to the game structure.
 */
 void			display(t_game *game);
-
-/*
-@brief Initialize the angles for the player.
-
-@param game   Pointer to the game structure.
-*/
-void			init_angles(t_game *game);
-
-/*
-@brief Initialize the game, set up the window, and start the game loop.
-
-@param game   Pointer to the game structure.
-*/
-void			game_init(t_game **game);
 
 // *****************************************************************************
 // Functions - key_events.c
