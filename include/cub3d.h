@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:19:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/21 12:39:51 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:40:52 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <mlx.h>
+# include <math.h>
+# define PI 3.1415926535
 
 // *****************************************************************************
 // Personal library
@@ -29,17 +31,4 @@
 # include "game.h"
 
 char	*get_next_line(int fd);
-// *****************************************************************************
-// Functions - main.c
-
-/*
-@brief Remove empty lines from the input cub_file.
-
-@param cub_file   An array of strings representing the cub file content.
-@return           Returns a new array of strings without the empty lines.
-*/
-char	**del_empty_lines(char **cub_file);
-
-
-
 #endif
