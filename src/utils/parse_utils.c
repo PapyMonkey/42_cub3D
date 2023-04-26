@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:30:27 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:46:19 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:09:33 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,33 @@ void	is_cub(char *map_path, t_game **game)
 		|| map_path[ft_strlen(map_path) - 2] != 'u'
 		|| map_path[ft_strlen(map_path) - 1] != 'b')
 		print_free_exit("Error\nMap must be to \".cub\" format\n", game);
+}
+
+char	**del_empty_lines(char **file)
+{
+	int		i;
+	int		j;
+	int		c;
+	char	**ret;
+
+	i = -1;
+	ret = malloc(sizeof(char *) * (coolsize(file) + 1) + (j = 0) + (c = 0));
+	while (file[++i] && c < coolsize(file))
+	{
+		j += iter_whitespace(file[i]);
+		if (file[i][j] && (file[i][j] == '\0' || file[i][j] == '\n') && c <= 6)
+			j = 0;
+		else
+		{
+			if (c < 6)
+				ret[c] = ft_substr(file[i], j, ft_strlen(file[i]));
+			else
+					ret[c] = ft_substr(file[i], 0, ft_strlen(file[i]));
+			c++;
+			j = 0;
+		}
+	}
+	ret[c] = NULL;
+	free_char_array(file);
+	return (ret);
 }

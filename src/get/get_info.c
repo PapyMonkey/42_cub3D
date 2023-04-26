@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:24:42 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/21 12:31:14 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:18:35 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,3 @@ char	**get_ressources(char **cub_file, t_game **game)
 	ret[i] = NULL;
 	return (ret);
 }
-
