@@ -6,7 +6,7 @@
 #    By: bgales <bgales@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 14:23:25 by aguiri            #+#    #+#              #
-#    Updated: 2023/04/20 14:54:31 by bgales           ###   ########.fr        #
+#    Updated: 2023/04/25 14:13:47 by bgales           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ HFLAGS				:=	-I $(HDRS_PATH)\
 # Libft
 FTFLAGS				:=	-L./$(LIBFT_PATH)
 
-LFLAGS				:=	$(FTFLAGS) -lft
+LFLAGS				:=	$(FTFLAGS) -lft -lmlx -framework OpenGL -framework AppKit
 
 # ********************************* N O R M E *********************************
 
