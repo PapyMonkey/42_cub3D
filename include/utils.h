@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:41:05 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/21 12:40:00 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:59:57 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			coolsize(char **cub_file);
 void		get_xy(t_game **game);
 
 // *****************************************************************************
-// Functions - get.c
+// Functions - get_info.c
 
 /*
 @brief	Read the content of a map file and return it as an array of strings.
@@ -48,7 +48,7 @@ void		get_xy(t_game **game);
 @param map_path   Path of the map file.
 @return			Returns an array of strings containing the content of the map file.
 */
-char	**get_file(char *map_path, t_game **game);
+char		**get_file(char *map_path, t_game **game);
 
 /*
 @brief Extract the map section from the cub_file.
@@ -56,7 +56,7 @@ char	**get_file(char *map_path, t_game **game);
 @param cub_file   An array of strings representing the cub file content.
 @return 		Returns a new array of strings containing only the map section.
 */
-char	**get_map(char **cub_file);
+char		**get_map(char **cub_file);
 
 /*
 @brief Extract the resources section from the cub_file.
@@ -64,7 +64,7 @@ char	**get_map(char **cub_file);
 @param cub_file		An array of strings representing the cub file content.
 @return			Returns a new array of strings containing only the resources section.
 */
-char	**get_ressources(char **cub_file, t_game **game);
+char		**get_ressources(char **cub_file, t_game **game);
 
 // *****************************************************************************
 // Functions - parse_utils.c
@@ -138,7 +138,7 @@ int			iter_space(char *str);
 int			iter_no_spaceornl(char *str);
 
 // *****************************************************************************
-// Functions - print.c
+// Functions - free.c
 
 /*
 @brief Print the given string and exit the program.
@@ -158,4 +158,5 @@ void		free_char_array(char **tab);
 @param game The game struct to be freed
 */
 void		free_struct(t_game **game);
+
 #endif
