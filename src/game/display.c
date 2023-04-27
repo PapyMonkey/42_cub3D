@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:17:24 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/26 16:17:58 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/27 12:19:04 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	display(t_game *game)
 				draw_map(game, i, j);
 			if (in_set("NEWS", game->map[i][j]))
 			{
+				game->player->orientation = game->map[i][j];
 				game->player->x = j;
 				game->player->y = i;
 				draw_player(game, i, j);
