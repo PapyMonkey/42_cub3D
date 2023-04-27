@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:46:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/26 15:08:51 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/27 12:18:44 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_player{
 	float	pdx;
 	float	pdy;
 	float	pa;
+	char	orientation;
 }	t_player;
 
 typedef struct s_game{
