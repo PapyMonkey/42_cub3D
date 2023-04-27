@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:41:05 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/26 15:59:57 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/27 12:25:29 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,15 @@ int			in_set(char *set, char c);
 @param map_path   Path of the map file.
 */
 void		is_cub(char *map_path, t_game **game);
+
+/*
+@brief Delete all empty line from .cub file.
+
+@param file   Tab containing the map file.
+@return       Map file without empty lines.
+*/
+char		**del_empty_lines(char **file);
+
 
 // *****************************************************************************
 // Functions - iteration_utils.c
