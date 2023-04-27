@@ -6,18 +6,12 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:41:05 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:37:30 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/27 12:25:29 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
-
-// *****************************************************************************
-// Personal library
-
-# include "libft.h"
-# include "structures.h"
 
 // *****************************************************************************
 // Functions - get_size.c
@@ -37,6 +31,40 @@ int			brut_file_size(char *map_path);
 @return Returns the number of valid rows in the map.
 */
 int			coolsize(char **cub_file);
+
+/*
+@brief Calculates map's height and width.
+
+@param game The game structure.
+*/
+void		get_xy(t_game **game);
+
+// *****************************************************************************
+// Functions - get_info.c
+
+/*
+@brief	Read the content of a map file and return it as an array of strings.
+
+@param map_path   Path of the map file.
+@return			Returns an array of strings containing the content of the map file.
+*/
+char		**get_file(char *map_path, t_game **game);
+
+/*
+@brief Extract the map section from the cub_file.
+
+@param cub_file   An array of strings representing the cub file content.
+@return 		Returns a new array of strings containing only the map section.
+*/
+char		**get_map(char **cub_file);
+
+/*
+@brief Extract the resources section from the cub_file.
+
+@param cub_file		An array of strings representing the cub file content.
+@return			Returns a new array of strings containing only the resources section.
+*/
+char		**get_ressources(char **cub_file, t_game **game);
 
 // *****************************************************************************
 // Functions - parse_utils.c
@@ -63,6 +91,15 @@ int			in_set(char *set, char c);
 @param map_path   Path of the map file.
 */
 void		is_cub(char *map_path, t_game **game);
+
+/*
+@brief Delete all empty line from .cub file.
+
+@param file   Tab containing the map file.
+@return       Map file without empty lines.
+*/
+char		**del_empty_lines(char **file);
+
 
 // *****************************************************************************
 // Functions - iteration_utils.c
@@ -110,7 +147,7 @@ int			iter_space(char *str);
 int			iter_no_spaceornl(char *str);
 
 // *****************************************************************************
-// Functions - print.c
+// Functions - free.c
 
 /*
 @brief Print the given string and exit the program.
@@ -130,4 +167,5 @@ void		free_char_array(char **tab);
 @param game The game struct to be freed
 */
 void		free_struct(t_game **game);
+
 #endif

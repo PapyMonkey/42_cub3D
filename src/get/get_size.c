@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:40:57 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/19 18:32:59 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:18:45 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,20 @@ int	coolsize(char **cub_file)
 		}
 	}
 	return (c);
+}
+
+void	get_xy(t_game **game)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = 0;
+	while ((*game)->map[++i])
+	{
+		if (ft_strlen((*game)->map[i]) > ft_strlen((*game)->map[j]))
+			j = i;
+	}
+	(*game)->height = i;
+	(*game)->width = ft_strlen((*game)->map[j]);
 }

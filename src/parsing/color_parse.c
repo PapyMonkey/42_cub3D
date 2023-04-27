@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:22:07 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 14:14:04 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:19:56 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parse_color(int *rgb, int j, t_game **game)
 {
-	if (j != 3)
+	if (j != 2)
 		print_free_exit("Error\n Wrong color format", game);
 	if (rgb[0] < 0 || rgb[0] > 255 || rgb[1] < 0
 		|| rgb[1] > 255 || rgb[2] < 0 || rgb[2] > 255)

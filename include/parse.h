@@ -6,18 +6,12 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:43:14 by bgales            #+#    #+#             */
-/*   Updated: 2023/04/20 12:38:35 by bgales           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:58:38 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
-
-// *****************************************************************************
-// Personal library
-
-# include "libft.h"
-# include "structures.h"
 
 // *****************************************************************************
 // Functions - parser.c
@@ -131,7 +125,7 @@ void		get_texture(t_game **game, int line);
 void		ressource_parse(t_game **game);
 
 // *****************************************************************************
-// Functions - ressource_parse.c
+// Functions - texture_parse.c
 
 void		parse_north_south(char *str, t_game **game);
 void		parse_east(char *str, t_game **game);
